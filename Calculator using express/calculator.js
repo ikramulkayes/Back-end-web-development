@@ -14,6 +14,17 @@ app.post("/",function(req,res){
     res.send("sum of "+a+" and " +b+" is "+c)
 })
 
+app.get("/bmi",function(req,res){
+    res.sendFile(__dirname+"/bmicalculator.html")
+})
+app.post("/bmi",function(req,res){
+    var a = req.body.weight
+    var b = req.body.height
+    var c = (Number(a) / (Number(b)*(Number(b))))
+    res.send("Your BMI is "+c)
+})
+
+
 
 app.listen(3000,function(){
     console.log("Server started")
